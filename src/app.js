@@ -6,12 +6,19 @@ const geocode=require('./utils/geocode.js')
 const forecast=require('./utils/forecast.js')
 console.log(__dirname)
 console.log(__filename)
+
+
+
 //console.log(path.join(__dirname,'../public'))
 const app =express()
+const port=process.env.PORT || 3000
+
 //Define paths for express config
 const publicdirpath=path.join(__dirname,'../public')
 const viewspath=path.join(__dirname,'../templates/views')
 const partailspath=path.join(__dirname,'../templates/partials')
+
+
 //setup handelbars
 app.set('view engine','hbs')
 app.set('views',viewspath)
@@ -125,6 +132,6 @@ app.get('*',(req,res)=>{
     })
     
 })// * wild card character for replacing anything not mentioned above, must be at last
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log('server is up, this is only for the developer not displayed on the website')
 })
